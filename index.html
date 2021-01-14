@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="shortcut icon" href="calculatorlogo.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main id="container">
+      <div id="screen">
+        <p id="output">0</p>
+      </div>
+      <div class="buttons">
+        <div class="main-buttons">
+          <div class="row">
+            <button class="number button">7</button>
+            <button class="number button">8</button>
+            <button class="number button">9</button>
+            <button class="operator button">/</button>
+          </div>
+          <div class="row">
+            <button class="number button">4</button>
+            <button class="number button">5</button>
+            <button class="number button">6</button>
+            <button class="operator button">*</button>
+          </div>
+          <div class="row">
+            <button class="number button">1</button>
+            <button class="number button">2</button>
+            <button class="number button">3</button>
+            <button class="operator button">-</button>
+          </div>
+          <div class="row">
+            <button class="number button">0</button>
+            <button class="decimal button">.</button>
+            <button class="operator button">+</button>
+          </div>
+        </div>
+        <div class="finish-buttons">
+          <button class="cancel button">C</button>
+          <button class="submit button">=</button>
+        </div>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>

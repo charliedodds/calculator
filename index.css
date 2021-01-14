@@ -1,0 +1,111 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  color: black;
+  font-size: 2rem;
+  font-family: "JetBrains Mono", monospace;
+}
+button {
+  outline: none;
+  border: none;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+button:active {
+  position: relative;
+  top: 2px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
+}
+#container {
+  max-height: 900px;
+  max-width: 600px;
+  height: 100%;
+  width: 100%;
+  background: #e0eafc; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to bottom,
+    #cfdef3,
+    #e0eafc
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #cfdef3,
+    #e0eafc
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  padding: 4rem;
+}
+
+#screen {
+  height: 15%;
+  padding: 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#output {
+  margin: 0;
+}
+.row {
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  height: 25%;
+}
+.buttons {
+  height: 85%;
+  padding: 3rem 0;
+}
+.main-buttons {
+  height: 80%;
+}
+.finish-buttons {
+  display: flex;
+  height: 20%;
+  justify-content: space-evenly;
+}
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  flex: 1;
+  border-radius: 2rem;
+  margin: 0.5rem;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+.submit {
+  background-color: rgba(0, 128, 0, 0.2);
+}
+
+.cancel {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
+@media (min-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+  #container {
+    border-radius: 3rem;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  }
+}
