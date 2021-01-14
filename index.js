@@ -115,6 +115,8 @@ function checkCriminalScum() {
   if (display.textContent === criminalScum) {
     display.style.fontSize = "1.3rem";
     display.style.margin = "auto";
+    newNum = true;
+    currentTotal = "0";
   } else {
     display.style.fontSize = "5rem";
     display.style.margin = "0";

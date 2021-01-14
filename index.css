@@ -99,6 +99,10 @@ button:disabled {
   margin: 0.5rem;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
+
+.operator {
+  background-color: rgba(255, 166, 0, 0.1);
+}
 .submit {
   background-color: rgba(0, 128, 0, 0.2);
 }
