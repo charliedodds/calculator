@@ -33,6 +33,11 @@ button:active {
   top: 2px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 }
+
+button:disabled {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
 #container {
   max-height: 900px;
   max-width: 600px;
@@ -62,6 +67,8 @@ button:active {
 
 #output {
   margin: 0;
+  font-size: 5rem;
+  overflow-x: scroll;
 }
 .row {
   display: flex;
