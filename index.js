@@ -60,11 +60,15 @@ function clear() {
   newNum = true;
   updateDisplay();
   enableDecimal();
+  disableBackspace();
 }
 
 function updateDisplay() {
   display.innerText = currentTotal;
   checkCriminalScum();
+  if (currentTotal === "") {
+    disableBackspace();
+  }
 }
 
 function enterDigit(e) {
