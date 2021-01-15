@@ -34,6 +34,7 @@ const display = document.querySelector("#output");
 const cancel = document.querySelector(".cancel");
 const operatorBtns = document.querySelectorAll(".operator");
 const equals = document.querySelector(".submit");
+const decimal = document.querySelector(".decimal");
 
 cancel.addEventListener("click", clear);
 
@@ -47,12 +48,15 @@ operatorBtns.forEach((btn) => {
 
 equals.addEventListener("click", equal);
 
+decimal.addEventListener("click", decimalClick);
+
 function clear() {
   currentTotal = "0";
   num1 = null;
   num2 = null;
   newNum = true;
   updateDisplay();
+  enableDecimal();
 }
 
 function updateDisplay() {
@@ -83,9 +87,9 @@ function operatorClick(e) {
     num2 = currentTotal;
     doMath(num1, num2, operator);
     num1 = currentTotal;
+    num2 = null;
     newNum = true;
-  } else {
-    console.log(num1, num2, operator);
+    enableDecimal();
   }
   switch (e.target.value) {
     case "add":
@@ -104,11 +108,14 @@ function operatorClick(e) {
 }
 
 function equal() {
-  num2 = currentTotal;
-  doMath(num1, num2, operator);
-  newNum = true;
-  num1 = null;
-  num2 = null;
+  if (num1 && operator) {
+    num2 = currentTotal;
+    doMath(num1, num2, operator);
+    newNum = true;
+    num1 = null;
+    num2 = null;
+    enableDecimal();
+  }
 }
 
 function checkCriminalScum() {
@@ -123,55 +130,22 @@ function checkCriminalScum() {
   }
 }
 
-// numBtns.forEach((btn) => {
-//   btn.addEventListener("click", updateDisplay);
-// });
+function addDecimal(e) {
+  currentTotal += e.target.textContent;
+  newNum = false;
+  disableDecimal();
+  updateDisplay();
+}
 
-// operatorBtns.forEach((btn) => {
-//   btn.addEventListener("click", saveNumberAndOperator);
-// });
+function disableDecimal() {
+  decimal.disabled = true;
+}
 
-// equals.addEventListener("click", doMath);
+function enableDecimal() {
+  decimal.disabled = false;
+}
 
-// function updateDisplay(e) {
-//   if (display.textContent === "0" || newNum) {
-//     display.textContent = e.target.textContent;
-//     newNum = false;
-//   } else {
-//     display.textContent += e.target.textContent;
-//   }
-// }
-
-// function saveNumberAndOperator(e) {
-//   switch (e.target.value) {
-//     case "add":
-//       operator = add;
-//       break;
-//     case "subtract":
-//       operator = subtract;
-//       break;
-//     case "multiply":
-//       operator = multiply;
-//       break;
-//     case "divide":
-//       operator = divide;
-//       break;
-//   }
-//   if (num1 && newNum) {
-//     num2 = display.textContent;
-//     doMath();
-//   } else {
-//     num1 = display.textContent;
-//   }
-//   newNum = true;
-// }
-
-// function doMath() {
-//   num2 = display.textContent;
-//   display.textContent = operate(num1, num2, operator);
-//   num1 = display.textContent;
-//   num2 = null;
-//   newNum = true;
-// }
-
-// function chain() {}
+function decimalClick(e) {
+  addDecimal(e);
+  disableDecimal();
+}
