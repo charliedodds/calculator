@@ -35,6 +35,7 @@ const cancel = document.querySelector(".cancel");
 const operatorBtns = document.querySelectorAll(".operator");
 const equals = document.querySelector(".submit");
 const decimal = document.querySelector(".decimal");
+const backspace = document.querySelector(".backspace");
 
 cancel.addEventListener("click", clear);
 
@@ -49,6 +50,8 @@ operatorBtns.forEach((btn) => {
 equals.addEventListener("click", equal);
 
 decimal.addEventListener("click", decimalClick);
+
+backspace.addEventListener("click", backspaceClick);
 
 function clear() {
   currentTotal = "0";
@@ -71,6 +74,7 @@ function enterDigit(e) {
   } else {
     currentTotal += e.target.textContent;
   }
+  enableBackspace();
   updateDisplay();
 }
 
@@ -91,6 +95,7 @@ function operatorClick(e) {
     newNum = true;
   }
   enableDecimal();
+  disableBackspace();
   switch (e.target.value) {
     case "add":
       operator = add;
@@ -115,6 +120,7 @@ function equal() {
     num1 = null;
     num2 = null;
     enableDecimal();
+    disableBackspace();
   }
 }
 
@@ -148,4 +154,19 @@ function enableDecimal() {
 function decimalClick(e) {
   addDecimal(e);
   disableDecimal();
+}
+
+function backspaceClick() {
+  if (typeof currentTotal === "string") {
+    currentTotal = currentTotal.slice(0, -1);
+    updateDisplay();
+  }
+}
+
+function disableBackspace() {
+  backspace.disabled = true;
+}
+
+function enableBackspace() {
+  backspace.disabled = false;
 }

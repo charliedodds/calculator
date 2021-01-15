@@ -84,7 +84,7 @@ button:disabled {
 .main-buttons {
   height: 80%;
 }
-.finish-buttons {
+.utility-buttons {
   display: flex;
   height: 20%;
   justify-content: space-evenly;
@@ -110,6 +110,10 @@ button:disabled {
 
 .cancel {
   background-color: rgba(255, 0, 0, 0.2);
+}
+
+.backspace {
+  background-color: rgba(128, 0, 128, 0.1);
 }
 
 @media (min-width: 600px) {
