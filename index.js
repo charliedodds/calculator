@@ -89,8 +89,8 @@ function operatorClick(e) {
     num1 = currentTotal;
     num2 = null;
     newNum = true;
-    enableDecimal();
   }
+  enableDecimal();
   switch (e.target.value) {
     case "add":
       operator = add;
