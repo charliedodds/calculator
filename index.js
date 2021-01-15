@@ -66,7 +66,12 @@ function clear() {
 function updateDisplay() {
   display.innerText = currentTotal;
   checkCriminalScum();
-  if (currentTotal === "") {
+  if (currentTotal.toString().includes(".")) {
+    disableDecimal();
+  } else {
+    enableDecimal();
+  }
+  if (currentTotal === "" || currentTotal === "0") {
     disableBackspace();
   }
 }
@@ -98,7 +103,6 @@ function operatorClick(e) {
     num2 = null;
     newNum = true;
   }
-  enableDecimal();
   disableBackspace();
   switch (e.target.value) {
     case "add":
@@ -123,7 +127,6 @@ function equal() {
     newNum = true;
     num1 = null;
     num2 = null;
-    enableDecimal();
     disableBackspace();
   }
 }
@@ -145,6 +148,7 @@ function addDecimal(e) {
   newNum = false;
   disableDecimal();
   updateDisplay();
+  enableBackspace();
 }
 
 function disableDecimal() {
@@ -164,6 +168,9 @@ function backspaceClick() {
   if (typeof currentTotal === "string") {
     currentTotal = currentTotal.slice(0, -1);
     updateDisplay();
+    if (!currentTotal.includes(".")) {
+      enableDecimal();
+    }
   }
 }
 
